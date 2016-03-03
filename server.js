@@ -7,11 +7,11 @@ function start(route, handle){
   function onRequest(request, response) {
     var pathName = url.parse(request.url).pathname;
     console.log('Request for ' + pathName + ' recieved');
-    route(handle, pathName, response);
+    route(handle, pathName, response, request);
   }
-
   http.createServer(onRequest).listen(8888);
   console.log('Server has started');
 }
+
 
 exports.start = start;
